@@ -26,6 +26,8 @@ Step 5 :
 
 NOTE : Remove existing docker
 
+```sudo docker rm tii_ros2_agent```
+
 `sudo docker rm tii_ros2_agent`
 
 To stop docker : 
