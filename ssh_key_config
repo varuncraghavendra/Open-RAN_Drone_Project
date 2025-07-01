@@ -14,6 +14,7 @@ Step 3 : Add SSH Key to Bitbucket
 
 cat ~/.ssh/id_ed25519.pub # Copy your public key
 
+![Alt text](images/ssh.png)
 
 
 
