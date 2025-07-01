@@ -38,18 +38,18 @@ To stop docker :
 
 Step 1 : Generate a New SSH Key (if none exists)
 
-ssh-keygen -t ed25519 -C "your_email@example.com"
+`ssh-keygen -t ed25519 -C "your_email@example.com"`
 
 Step 2 : Then start the SSH agent and add your key:
 
 eval "$(ssh-agent -s)"
 
-ssh-add ~/.ssh/id_ed25519
+`ssh-add ~/.ssh/id_ed25519`
 
 Step 3 : Add SSH Key to Bitbucket
 
-cat ~/.ssh/id_ed25519.pub # Copy your public key
-
+`cat ~/.ssh/id_ed25519.pub # Copy your public key
+`
 Step 4 : Go to Bitbucket:
 
 Click on your avatar → Personal settings
