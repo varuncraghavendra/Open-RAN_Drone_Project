@@ -2,6 +2,22 @@
 
 `sudo date -s "2025-07-02 14:30:00"`
 
+
+# Re-Enter the dockers 
+
+#### px4-dev-test
+
+`docker start px4-dev-test`
+
+`docker exec -it px4-dev-test bash`
+
+#### px4_agent_ws
+
+`docker start px4_agent_ws`
+
+`docker exec -it px4_agent_ws bash`
+
+
 # Step By Step Instructions 
 
 `sudo apt update`
