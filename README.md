@@ -60,6 +60,9 @@ Click Add key
 
 Paste the public key and save
 
+### Docker Management 
+
+`sudo docker ps -a` # Lists down all current and past dockers
 
 
  
