@@ -1,3 +1,7 @@
+# Date and time syncup
+
+`sudo date -s "2025-07-02 14:30:00"`
+
 # nwconfig_drone
 
 Inside px4_agent_ws directory, 
