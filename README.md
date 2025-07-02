@@ -70,6 +70,10 @@ Paste the public key and save
 
 `sudo docker exec -it` # Restart the docker
 
+Clean up unused images/containers:
+
+`docker system prune -a --volumes`
+
 
  
 
