@@ -2,40 +2,96 @@
 
 `sudo date -s "2025-07-02 14:30:00"`
 
-# nwconfig_drone
+# Step By Step Instructions 
 
-Inside px4_agent_ws directory, 
+`sudo apt update`
+`sudo apt install -y docker.io docker-compose git x11-xserver-utils`
+`sudo usermod -aG docker $USER`
+`newgrp docker`  # Apply docker group without reboot
 
-Step 1 : Setup PX4 Docker
+`git clone --recurse-submodules git@bitbucket.org:autonomouscv/px4_agent_ws.git` # Clone the repository
+`cd px4_agent_ws`
 
-`sudo docker build -t px4_sitl_img ./px4_docker_images/px4_sitl_img`
+### Build Docker Images
+#### From root of the workspace:
 
-Step 2 : Setup ROS2 Docker 
+### PX4 SITL Container
 
-`sudo docker build -t ros2_humble_img ./px4_docker_images/ros2_humble_img`
+`cd px4_docker_images/px4_sitl_img`
+`sudo docker build -t px4_sim .`
 
-Step 3 : Run the PX4 Container from the px4_docker_images
-
-`sudo docker run -it --rm px4_sitl_img /bin/bash`
-
-Step 4 : Run Docker from px4_agent_ws/px4_docker_images
-
-`sudo docker run -it      --privileged     --env="DISPLAY"     --workdir="/home/ros2_ws/"     --volume="/dev:/dev"     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"     --volume="/var/run/dbus:/var/run/dbus"     --volume="./src:/home/ros2_ws/src"     --network host     --name $CONTAINER_NAME     $IMAGE_NAME     "$@"`
-
-
-
-Step 5 : 
+`cd ../ros2_humble_img`
+`sudo docker build -t ros2-humble-ntt .`
 
 
+### Run Docker Containers
 
-NOTE : Remove existing docker
+`cd px4_docker_images/px4_sitl_img`
+`chmod +x start.sh`
+`./start.sh`
 
-`sudo docker rm tii_ros2_agent`
+#### Let PX4 SITL stay running.
 
-To stop docker : 
+### ROS 2 Container
 
-`docker stop px4-dev-test`
+`cd px4_docker_images/ros2_humble_img`
+`chmod +x run_container.sh`
+`./run_container.sh`
 
+#### Inside the ROS 2 Container
+
+`pip3 install --user -U empy==3.3.4 pyros-genmsg setuptools==70.3.0`
+`pip install py_trees typing_extensions`
+
+`apt-get update`
+`apt-get install -y ros-humble-navigation2`
+
+### Install Micro XRCE DDS Agent
+
+`cd /home`
+`git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git`
+`cd Micro-XRCE-DDS-Agent`
+`mkdir build && cd build`
+`cmake ..`
+`make`
+`sudo make install`
+`sudo ldconfig /usr/local/lib/`
+
+### Add ROS 2 Setup to Bash
+
+nano ~/.bashrc
+source /opt/ros/humble/setup.bash
+source /home/ros2_ws/install/setup.bash
+
+### Build ROS 2 Workspace
+
+`cd /home/ros2_ws
+colcon build --symlink-install --packages-select px4_msgs
+source install/setup.bash
+
+colcon build --symlink-install --packages-select px4_ros_com
+source install/setup.bash
+
+colcon build
+source install/setup.bash`
+
+
+### Launch Micro XRCE Agent and ROS2 Nodes
+
+`MicroXRCEAgent udp4 -p 8888`
+
+#### Open a new terminal and run the following 
+
+`./run_container.sh
+source install/setup.bash
+ros2 launch drone_basic_control launch_all_nodes.launch.py`
+
+
+#### Open another new terminal and run the following 
+
+`./run_container.sh
+source install/setup.bash
+ros2 launch system_bringup launch_nodes.launch.py `
 
 
 ## SSH Key Setup 
@@ -70,9 +126,12 @@ Paste the public key and save
 
 `sudo docker exec -it` # Restart the docker
 
-Clean up unused images/containers:
+`docker system prune -a --volumes` # Clean up unused images/containers
 
-`docker system prune -a --volumes`
+`sudo docker rm tii_ros2_agent`# Remove existing docker
+
+`docker stop px4-dev-test` # To stop docker 
+
 
 
  
