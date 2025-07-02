@@ -5,11 +5,15 @@
 # Step By Step Instructions 
 
 `sudo apt update`
+
 `sudo apt install -y docker.io docker-compose git x11-xserver-utils`
+
 `sudo usermod -aG docker $USER`
+
 `newgrp docker`  # Apply docker group without reboot
 
 `git clone --recurse-submodules git@bitbucket.org:autonomouscv/px4_agent_ws.git` # Clone the repository
+
 `cd px4_agent_ws`
 
 ### Build Docker Images
@@ -18,16 +22,20 @@
 ### PX4 SITL Container
 
 `cd px4_docker_images/px4_sitl_img`
+
 `sudo docker build -t px4_sim .`
 
 `cd ../ros2_humble_img`
+
 `sudo docker build -t ros2-humble-ntt .`
 
 
 ### Run Docker Containers
 
 `cd px4_docker_images/px4_sitl_img`
+
 `chmod +x start.sh`
+
 `./start.sh`
 
 #### Let PX4 SITL stay running.
@@ -35,45 +43,62 @@
 ### ROS 2 Container
 
 `cd px4_docker_images/ros2_humble_img`
+
 `chmod +x run_container.sh`
+
 `./run_container.sh`
 
 #### Inside the ROS 2 Container
 
 `pip3 install --user -U empy==3.3.4 pyros-genmsg setuptools==70.3.0`
+
 `pip install py_trees typing_extensions`
 
 `apt-get update`
+
 `apt-get install -y ros-humble-navigation2`
 
 ### Install Micro XRCE DDS Agent
 
 `cd /home`
+
 `git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git`
+
 `cd Micro-XRCE-DDS-Agent`
+
 `mkdir build && cd build`
+
 `cmake ..`
+
 `make`
+
 `sudo make install`
+
 `sudo ldconfig /usr/local/lib/`
 
 ### Add ROS 2 Setup to Bash
 
-nano ~/.bashrc
-source /opt/ros/humble/setup.bash
-source /home/ros2_ws/install/setup.bash
+`nano ~/.bashrc`
+
+`source /opt/ros/humble/setup.bash`
+
+`source /home/ros2_ws/install/setup.bash`
 
 ### Build ROS 2 Workspace
 
-`cd /home/ros2_ws
-colcon build --symlink-install --packages-select px4_msgs
-source install/setup.bash
+`cd /home/ros2_ws`
 
-colcon build --symlink-install --packages-select px4_ros_com
-source install/setup.bash
+`colcon build --symlink-install --packages-select px4_msgs`
 
-colcon build
-source install/setup.bash`
+`source install/setup.bash`
+
+`colcon build --symlink-install --packages-select px4_ros_com`
+
+`source install/setup.bash`
+
+`colcon build`
+
+`source install/setup.bash`
 
 
 ### Launch Micro XRCE Agent and ROS2 Nodes
@@ -82,16 +107,20 @@ source install/setup.bash`
 
 #### Open a new terminal and run the following 
 
-`./run_container.sh
-source install/setup.bash
-ros2 launch drone_basic_control launch_all_nodes.launch.py`
+`./run_container.sh`
+
+`source install/setup.bash`
+
+`ros2 launch drone_basic_control launch_all_nodes.launch.py`
 
 
 #### Open another new terminal and run the following 
 
-`./run_container.sh
-source install/setup.bash
-ros2 launch system_bringup launch_nodes.launch.py `
+`./run_container.sh`
+
+`source install/setup.bash`
+
+`ros2 launch system_bringup launch_nodes.launch.py `
 
 
 ## SSH Key Setup 
