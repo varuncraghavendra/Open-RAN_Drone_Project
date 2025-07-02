@@ -64,6 +64,8 @@ Paste the public key and save
 
 `sudo docker ps -a` # Lists down all current and past dockers
 
+`sudo docker exec -it` # Restart the docker
+
 
  
 
