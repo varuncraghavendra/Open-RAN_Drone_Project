@@ -32,7 +32,7 @@
 
 `cd px4_agent_ws`
 
-#### Build Docker Images
+### Build Docker Images
 #### From root of the workspace:
 
 #### PX4 SITL Container
