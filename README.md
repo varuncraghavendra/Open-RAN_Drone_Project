@@ -153,8 +153,8 @@ eval "$(ssh-agent -s)"
 
 Step 3 : Add SSH Key to Bitbucket
 
-`cat ~/.ssh/id_ed25519.pub # Copy your public key
-`
+`cat ~/.ssh/id_ed25519.pub # Copy your public key`
+
 Step 4 : Go to Bitbucket:
 
 Click on your avatar → Personal settings
