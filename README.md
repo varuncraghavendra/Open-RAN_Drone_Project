@@ -17,6 +17,10 @@
 
 `docker exec -it px4_agent_ws bash`
 
+#### Source the terminal
+
+`source ~/.bashrc`
+
 #### Launch Micro XRCE Agent and ROS2 Nodes
 
 `MicroXRCEAgent udp4 -p 8888`
