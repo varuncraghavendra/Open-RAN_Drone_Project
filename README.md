@@ -17,7 +17,7 @@
 
 `docker exec -it px4_agent_ws bash`
 
-#### Source the terminal
+#### Source the /home/ros2_ws inside docker
 
 `source ~/.bashrc`
 
