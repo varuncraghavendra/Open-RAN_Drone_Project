@@ -1,9 +1,9 @@
-# Date and time syncup
+## Date and time syncup
 
 `sudo date -s "2025-07-02 14:30:00"`
 
 
-# Re-Enter the dockers 
+## Re-Enter the dockers 
 
 #### px4-dev-test
 
@@ -18,7 +18,7 @@
 `docker exec -it px4_agent_ws bash`
 
 
-# Step By Step Instructions 
+## Step By Step Instructions 
 
 `sudo apt update`
 
@@ -32,10 +32,10 @@
 
 `cd px4_agent_ws`
 
-### Build Docker Images
+#### Build Docker Images
 #### From root of the workspace:
 
-### PX4 SITL Container
+#### PX4 SITL Container
 
 `cd px4_docker_images/px4_sitl_img`
 
@@ -46,7 +46,7 @@
 `sudo docker build -t ros2-humble-ntt .`
 
 
-### Run Docker Containers
+#### Run Docker Containers
 
 `cd px4_docker_images/px4_sitl_img`
 
@@ -74,7 +74,7 @@
 
 `apt-get install -y ros-humble-navigation2`
 
-### Install Micro XRCE DDS Agent
+#### Install Micro XRCE DDS Agent
 
 `cd /home`
 
@@ -92,7 +92,7 @@
 
 `sudo ldconfig /usr/local/lib/`
 
-### Add ROS 2 Setup to Bash
+#### Add ROS 2 Setup to Bash
 
 `nano ~/.bashrc`
 
@@ -100,7 +100,7 @@
 
 `source /home/ros2_ws/install/setup.bash`
 
-### Build ROS 2 Workspace
+#### Build ROS 2 Workspace
 
 `cd /home/ros2_ws`
 
@@ -117,7 +117,7 @@
 `source install/setup.bash`
 
 
-### Launch Micro XRCE Agent and ROS2 Nodes
+#### Launch Micro XRCE Agent and ROS2 Nodes
 
 `MicroXRCEAgent udp4 -p 8888`
 
@@ -165,7 +165,7 @@ Click Add key
 
 Paste the public key and save
 
-### Docker Management 
+## Docker Management 
 
 `sudo docker ps -a` # Lists down all current and past dockers
 
