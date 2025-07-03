@@ -19,7 +19,7 @@
 
 #### Source the /home/ros2_ws inside docker
 
-`source ~/.bashrc`
+`source install/setup.bash`
 
 #### Launch Micro XRCE Agent and ROS2 Nodes
 
