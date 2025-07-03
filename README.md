@@ -17,8 +17,29 @@
 
 `docker exec -it px4_agent_ws bash`
 
+#### Launch Micro XRCE Agent and ROS2 Nodes
 
-## Step By Step Instructions 
+`MicroXRCEAgent udp4 -p 8888`
+
+#### Open a new terminal and run the following 
+
+`./run_container.sh`
+
+`source install/setup.bash`
+
+`ros2 launch drone_basic_control launch_all_nodes.launch.py`
+
+
+#### Open another new terminal and run the following 
+
+`./run_container.sh`
+
+`source install/setup.bash`
+
+`ros2 launch system_bringup launch_nodes.launch.py `
+
+
+## Step By Step Instructions for first time build
 
 `sudo apt update`
 
@@ -115,28 +136,6 @@
 `colcon build`
 
 `source install/setup.bash`
-
-
-#### Launch Micro XRCE Agent and ROS2 Nodes
-
-`MicroXRCEAgent udp4 -p 8888`
-
-#### Open a new terminal and run the following 
-
-`./run_container.sh`
-
-`source install/setup.bash`
-
-`ros2 launch drone_basic_control launch_all_nodes.launch.py`
-
-
-#### Open another new terminal and run the following 
-
-`./run_container.sh`
-
-`source install/setup.bash`
-
-`ros2 launch system_bringup launch_nodes.launch.py `
 
 
 ## SSH Key Setup 
