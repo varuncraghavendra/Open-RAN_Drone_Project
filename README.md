@@ -4,7 +4,8 @@
 
 ## Enter the Dockers 
 
-#### px4_agent_ws
+
+#### px4-dev-test
 
 `cd px4_agent_ws/px4_docker_images/px4_sitl_img`
 
@@ -16,7 +17,8 @@
 
 `PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4`
 
-#### px4-dev-test
+
+#### px4_agent_ws
 
 `cd px4_agent_ws/px4_docker_images/ros2_humble_img`
 
