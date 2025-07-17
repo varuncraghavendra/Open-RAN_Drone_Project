@@ -6,7 +6,7 @@
 
 #### px4_agent_ws
 
-`cd /px4_agent_ws/px4_docker_images/px4_sitl_img`
+`cd px4_agent_ws/px4_docker_images/px4_sitl_img`
 
 `docker start px4-dev-test`
 
@@ -18,7 +18,7 @@
 
 #### px4-dev-test
 
-`cd /px4_agent_ws/px4_docker_images/ros2_humble_img`
+`cd px4_agent_ws/px4_docker_images/ros2_humble_img`
 
 `docker start px4_agent_ws`
 
