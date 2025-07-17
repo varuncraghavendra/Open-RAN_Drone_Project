@@ -2,11 +2,27 @@
 
 `sudo date -s "2025-07-02 14:30:00"`
 
-`cd /px4_agent_ws/px4_docker_images/ros2_humble_img`
+## Enter the Dockers 
+
+#### px4_agent_ws
 
 `cd /px4_agent_ws/px4_docker_images/px4_sitl_img`
 
-## Run the Simulation 
+`docker start px4_agent_ws`
+
+`docker exec -it px4_agent_ws bash`
+
+`cd PX4-Autopilot`
+
+`PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4`
+
+#### px4-dev-test
+
+`cd /px4_agent_ws/px4_docker_images/ros2_humble_img`
+
+`docker start px4-dev-test`
+
+`docker exec -it px4-dev-test bash`
 
 T1 : `MicroXRCEAgent udp4 -p 8888`
 
@@ -16,24 +32,6 @@ T3 : `ros2 run goal_manager goal_manager_server`
 
 T4 : `ros2 launch drone_basic_control launch_all_nodes.launch.py`
 
-#### In PX4 Terminal
-
-`PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4`
-
-
-## Re-Enter the dockers 
-
-#### px4-dev-test
-
-`docker start px4-dev-test`
-
-`docker exec -it px4-dev-test bash`
-
-#### px4_agent_ws
-
-`docker start px4_agent_ws`
-
-`docker exec -it px4_agent_ws bash`
 
 #### Source the /home/ros2_ws inside docker
 
