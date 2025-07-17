@@ -2,9 +2,9 @@
 
 `sudo date -s "2025-07-02 14:30:00"`
 
+`cd /px4_agent_ws/px4_docker_images/ros2_humble_img`
 
-
-
+`cd /px4_agent_ws/px4_docker_images/px4_sitl_img`
 
 ## Run the Simulation 
 
