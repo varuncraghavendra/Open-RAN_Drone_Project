@@ -3,6 +3,21 @@
 `sudo date -s "2025-07-02 14:30:00"`
 
 
+## Run the Simulation 
+
+T1 : `MicroXRCEAgent udp4 -p 8888`
+
+T2 : `ros2 launch system_bringup launch_nodes.launch.py `
+
+T3 : `ros2 run goal_manager goal_manager_server`
+
+T4 : `ros2 launch drone_basic_control launch_all_nodes.launch.py`
+
+#### In PX4 Terminal
+
+`PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4`
+
+
 ## Re-Enter the dockers 
 
 #### px4-dev-test
