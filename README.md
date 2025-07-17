@@ -8,9 +8,9 @@
 
 `cd /px4_agent_ws/px4_docker_images/px4_sitl_img`
 
-`docker start px4_agent_ws`
+`docker start px4-dev-test`
 
-`docker exec -it px4_agent_ws bash`
+`docker exec -it px4-dev-test bash`
 
 `cd PX4-Autopilot`
 
@@ -20,9 +20,9 @@
 
 `cd /px4_agent_ws/px4_docker_images/ros2_humble_img`
 
-`docker start px4-dev-test`
+`docker start px4_agent_ws`
 
-`docker exec -it px4-dev-test bash`
+`docker exec -it px4_agent_ws bash`
 
 T1 : `MicroXRCEAgent udp4 -p 8888`
 
