@@ -2,6 +2,10 @@
 
 `sudo date -s "2025-07-02 14:30:00"`
 
+### QGC Launch
+
+`flatpak run --device=all org.mavlink.qgroundcontrol`
+
 ## Enter the Dockers 
 
 
