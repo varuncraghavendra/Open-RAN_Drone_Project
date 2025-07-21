@@ -30,13 +30,13 @@
 
 `docker exec -it px4_agent_ws bash`
 
-T1 : `MicroXRCEAgent udp4 -p 8888`
+`MicroXRCEAgent udp4 -p 8888`
 
-T2 : `ros2 launch system_bringup launch_nodes.launch.py `
+`ros2 launch drone_basic_control launch_all_nodes.launch.py`
 
-T3 : `ros2 run goal_manager goal_manager_server`
+`ros2 run goal_manager goal_manager_server`
 
-T4 : `ros2 launch drone_basic_control launch_all_nodes.launch.py`
+`ros2 launch system_bringup launch_nodes.launch.py `
 
 
 #### Source the /home/ros2_ws inside docker
