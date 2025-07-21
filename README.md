@@ -202,6 +202,7 @@ Paste the public key and save
 
 `docker stop px4-dev-test` # To stop docker 
 
+`xhost +local:docker` # To reset Gazebo
 
 
  
