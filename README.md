@@ -1,6 +1,7 @@
 ## Date and time syncup
 
 `sudo date -s "2025-07-02 14:30:00"`
+`https://bitbucket.org/autonomouscv/px4_docker_images/src/52fde086cccf20f66f95e7adf81448a0abcc1bb4/px4_sitl_img/`
 
 ### QGC Launch
 
