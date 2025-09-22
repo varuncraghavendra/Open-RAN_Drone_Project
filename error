@@ -1,0 +1,7 @@
+killing running instances
+sitl_multiple_run.sh: line 109: /app/PX4-Autopilot/../../../Tools/simulation/gazebo-classic/setup_gazebo.bash: No such file or directory
+Starting gazebo
+sitl_multiple_run.sh: line 119: gzserver: command not found
+starting instance 1 in /build/px4_sitl_default/rootfs/0
+python3: can't open file '/app/PX4-Autopilot/../../../Tools/simulation/gazebo-classic/sitl_gazebo-classic/scripts/jinja_gen.py': [Errno 2] No such file or directory
+Spawning iris_1 at 0.0 3
